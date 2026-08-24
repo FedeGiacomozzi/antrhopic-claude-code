@@ -582,6 +582,23 @@ body { font-family: 'Mulish', sans-serif; background: var(--cream); color: var(-
   .footer-cols { gap: 32px; }
 }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1424149116195406');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1424149116195406&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -920,7 +937,7 @@ body { font-family: 'Mulish', sans-serif; background: var(--cream); color: var(-
         <div class="plan-feature teal-check"><span class="check">✓</span>PDF de alta calidad</div>
         <div class="plan-feature teal-check"><span class="check">✓</span>Entrega en menos de 24 hs</div>
       </div>
-      <a href="https://pay.hotmart.com/M106470819T" class="plan-cta" target="_blank" rel="noopener">Empezar →</a>
+      <a href="https://pay.hotmart.com/M106470819T" class="plan-cta" target="_blank" rel="noopener" onclick="fbq&&fbq('track','InitiateCheckout',{value:29,currency:'USD'})">Empezar →</a>
     </div>
 
     <div class="plan-card highlighted">
@@ -940,7 +957,7 @@ body { font-family: 'Mulish', sans-serif; background: var(--cream); color: var(-
         <div class="plan-feature gold-check"><span class="check">✓</span>PDF descargable</div>
         <div class="plan-feature gold-check"><span class="check">✓</span>Entrega en menos de 24 hs</div>
       </div>
-      <a href="https://pay.hotmart.com/D106470872S" class="plan-cta" target="_blank" rel="noopener">Empezar →</a>
+      <a href="https://pay.hotmart.com/D106470872S" class="plan-cta" target="_blank" rel="noopener" onclick="fbq&&fbq('track','InitiateCheckout',{value:35,currency:'USD'})">Empezar →</a>
     </div>
 
     <div class="plan-card">
@@ -958,7 +975,7 @@ body { font-family: 'Mulish', sans-serif; background: var(--cream); color: var(-
         <div class="plan-feature teal-check"><span class="check">✓</span>PDF descargable</div>
         <div class="plan-feature teal-check"><span class="check">✓</span>Entrega en menos de 24 hs</div>
       </div>
-      <a href="https://pay.hotmart.com/E106470974U" class="plan-cta" target="_blank" rel="noopener">Empezar →</a>
+      <a href="https://pay.hotmart.com/E106470974U" class="plan-cta" target="_blank" rel="noopener" onclick="fbq&&fbq('track','InitiateCheckout',{value:55,currency:'USD'})">Empezar →</a>
     </div>
 
   </div>
@@ -1265,6 +1282,18 @@ body { font-family: 'Mulish', sans-serif; background: var(--cream); color: var(-
     });
   });
 
+})();
+</script>
+<script>
+// ── META PIXEL: ViewContent al ver precios
+(function(){
+  const priceSec = document.getElementById('precios');
+  if(!priceSec || typeof fbq === 'undefined') return;
+  let fired = false;
+  const obs = new IntersectionObserver(([e]) => {
+    if(e.isIntersecting && !fired){ fired = true; fbq('track','ViewContent'); }
+  }, {threshold: 0.3});
+  obs.observe(priceSec);
 })();
 </script>
 </body>
